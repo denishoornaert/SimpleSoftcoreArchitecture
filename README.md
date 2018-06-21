@@ -1,1 +1,1 @@
-# Simple Softcore Architcture
+# Simple Softcore Architecture
