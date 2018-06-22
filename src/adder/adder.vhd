@@ -5,6 +5,7 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity adder is
     Port (
+        mode     : IN  std_logic_vector(0 to 1); -- "00" : 32bits, "01" : 16bits and "10" : 8bits
         operand1 : IN  std_logic_vector(0 to 31);
         operand2 : IN  std_logic_vector(0 to 31);
         result   : OUT std_logic_vector(0 to 31);
@@ -57,19 +58,32 @@ begin
     -- set up adders
     add81op1 <= operand1(24 to 31);
     add81op2 <= operand2(24 to 31);
-    add81cin <= '0';
     
     add82op1 <= operand1(16 to 23);
     add82op2 <= operand2(16 to 23);
-    add82cin <= add81car;
     
     add83op1 <= operand1(8 to 15);
     add83op2 <= operand2(8 to 15);
-    add83cin <= add82car;
     
     add84op1 <= operand1(0 to 7);
     add84op2 <= operand2(0 to 7);
-    add84cin <= add83car;
+    
+    -- carry propagation
+    add81cin <= '0';  -- no matter the mode : always at 0
+    
+    with mode select
+        add82cin <= add81car when "00",
+                    add81car when "01",
+                    '0' when others;
+        
+    with mode select
+        add83cin <= add82car when "00",
+                    '0' when others;
+        
+    with mode select
+        add84cin <= add83car when "00",
+                    add83car when "01",
+                    '0' when others;
     
     -- gather results
     inResult(24 to 31) <= add81res;
