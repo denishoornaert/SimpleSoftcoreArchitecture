@@ -5,10 +5,11 @@ use IEEE.STD_LOGIC_UNSIGNED.all;
 
 entity adder8bits is
     Port (
+        carryin  : IN  std_logic;
         operand1 : IN  std_logic_vector(0 to 7);
         operand2 : IN  std_logic_vector(0 to 7);
         result   : OUT std_logic_vector(0 to 7);
-        carry    : OUT std_logic
+        carryout : OUT std_logic
     );
 end adder8bits;
 
@@ -23,10 +24,10 @@ begin
     internalOperand2 <= '0'&operand2;
     
     -- perform
-    internalResult <= internalOperand1 + internalOperand2;
+    internalResult <= internalOperand1 + internalOperand2 + (X"00"&carryin);
     
     -- write
-    carry <= internalResult(0);
+    carryout <= internalResult(0);
     result <= internalResult(1 to 8);
 
 end arch;

@@ -11,7 +11,7 @@ architecture arch of adder_tb is
         operand1 : IN  std_logic_vector(0 to 31);
         operand2 : IN  std_logic_vector(0 to 31);
         result   : OUT std_logic_vector(0 to 31);
-        carry    : OUT std_logic
+        carries  : OUT std_logic_vector(0 to 3)
     );
     end component;
     
@@ -21,10 +21,10 @@ architecture arch of adder_tb is
     signal internalOperand1 : std_logic_vector(0 to 31);
     signal internalOperand2 : std_logic_vector(0 to 31);
     signal internalResult   : std_logic_vector(0 to 31);
-    signal internalCarry    : std_logic;
+    signal internalCarry    : std_logic_vector(0 to 3);
     
 begin
-    tbadder : adder port map (operand1=>internalOperand1, operand2=>internalOperand2, result=>internalResult, carry=>internalCarry);
+    tbadder : adder port map (operand1=>internalOperand1, operand2=>internalOperand2, result=>internalResult, carries=>internalCarry);
 
     stimuli : process
         variable ops1  : list := (X"0000000A", X"FFFFFFFF", X"FFFFFFFF", X"00000F00", X"01010101", X"e0f72f38", X"5c133e99", X"3fbc6412");
@@ -37,7 +37,7 @@ begin
             internalOperand1 <= ops1(i);
             internalOperand2 <= ops2(i);
             wait for 125 ns;
-            assert ((internalResult = ans(i)) and (internalCarry = carry(i))) report "Error !";
+            assert ((internalResult = ans(i)) and (internalCarry(0) = carry(i))) report "Error !";
         end loop;
     end process;
 
