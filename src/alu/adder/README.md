@@ -10,4 +10,4 @@ The choice of the addition is specified throught the `mode` input.
 
 The adder component is itself composed of four 8bits adders that are connected to each other through their carry signals (`in` and `out`).
 
-![alt text](https://github.com/denishoornaert/SimpleSoftcoreArchitecture/blob/alu/images/output.png)
+![alt text](https://github.com/denishoornaert/SimpleSoftcoreArchitecture/blob/alu/images/adder.png)
