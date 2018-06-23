@@ -1,4 +1,4 @@
-# Adder component
+# Subtractor component
 
 Simple subtractor capable of either computing :
  - 32bits by 32bits
