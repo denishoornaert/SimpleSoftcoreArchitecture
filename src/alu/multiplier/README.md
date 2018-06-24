@@ -1,6 +1,6 @@
-# Adder component
+# Multiplier component
 
-Simple adder capable of either computing :
+Simple multiplier capable of either computing :
  - 32bits by 32bits
  - 16bits by 16bits
  - 8bits by 8bits
