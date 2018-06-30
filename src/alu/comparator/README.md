@@ -1,1 +1,1 @@
-# Comparator
+# Comparator component
