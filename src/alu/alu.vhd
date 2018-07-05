@@ -199,6 +199,7 @@ begin
                     result <= (others => '0');
                 when "10010" =>                 -- any kind of branching instruction
                     branchTaken <= intBranchTaken;
+                    result <= internalBranchResult;
                 when others =>
                     branchTaken <= '0';
                     result <= (others => '0');
