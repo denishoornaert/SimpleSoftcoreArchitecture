@@ -1,6 +1,6 @@
 # Simple Softcore Architecture
 
-Simple load/store CPU architecture that aims to be eventually ran on an FPGA.
+This project consists in the implementation is a single core load/store CPU architecture that aims to be eventually ran on an FPGA.
 
 The architecture is neither designed to be a RISC or CISC architecture. In fact, all the functionalities enabled by the architecture will be arbitrarily decided.
 The main objective of  this project is to test my knowledge of *hardware description languages* (here VHDL), CPU architecture and --- eventually --- compilers.
