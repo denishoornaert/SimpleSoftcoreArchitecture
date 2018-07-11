@@ -7,9 +7,10 @@ The main objective of  this project is to test my knowledge of *hardware descrip
 
 Therefore, as suggested above, the road map is composed of several steps :
  - the design of a simple --- but sound --- CPU architecture
-  - data forwarding
-  - branch prediction
-  - ...
+   - data forwarding
+   - branch prediction
+   - ...
+  
  - creation of an assembly language induced by the ISA (i.e. compiler `asm` to `bitstraem`)
  - enabling of basic input/output management (keyboard input and display output)
  - implementation of internal interruptions and an ISR
